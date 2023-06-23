@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver"
 	"math/rand"
 	"time"
+
+	"github.com/Chever-John/Chever-Apiserver/internal/apiserver"
 )
 
 // apiserver is the api server for the whole servie.
