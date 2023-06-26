@@ -8,8 +8,12 @@ import (
 
 // Options is the options for apiserver.
 type Options struct {
-	GenericServerRunOptions *genericoptions.ServerRunOptions `json:"server"   mapstructure:"server"`
-	Log                     *log.Options                     `json:"log" mapstructure:"log"`
+	GenericServerRunOptions *genericoptions.ServerRunOptions       `json:"server"   mapstructure:"server"`
+	Log                     *log.Options                           `json:"log" mapstructure:"log"`
+	FeatureOptions          *genericoptions.FeatureOptions         `json:"feature"  mapstructure:"feature"`
+	SecureServing           *genericoptions.SecureServingOptions   `json:"secure"   mapstructure:"secure"`
+	InsecureServing         *genericoptions.InsecureServingOptions `json:"insecure" mapstructure:"insecure"`
+	GRPCOptions             *genericoptions.GRPCOptions            `json:"grpc"     mapstructure:"grpc"`
 }
 
 // NewOptions creates a new Options object with default params.

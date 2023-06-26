@@ -23,6 +23,15 @@ func NewServerRunOptions() *ServerRunOptions {
 	}
 }
 
+// ApplyTo applies the run options to the method receiver and returns self.
+func (s *ServerRunOptions) ApplyTo(c *server.Config) error {
+	c.Mode = s.Mode
+	c.Healthz = s.Healthz
+	c.Middlewares = s.Middlewares
+
+	return nil
+}
+
 // AddFlags adds flags for a specific ApiServer to the specified FlagSet.
 func (s *ServerRunOptions) AddFlags(fs *pflag.FlagSet) {
 	// Note: the weird ""+ in below lines seems to be the only way to get gofmt to

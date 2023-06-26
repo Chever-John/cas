@@ -1,22 +1,35 @@
 package server
 
 import (
+	"github.com/Chever-John/component-base/pkg/util/homedir"
+	"github.com/spf13/viper"
 	"net"
+	"path/filepath"
 	"strconv"
+	"strings"
 
+	"github.com/Chever-John/Chever-Apiserver/pkg/log"
 	"github.com/gin-gonic/gin"
 )
 
-// Config is a structure used to configure a GenericAPIServer.
+const (
+	// RecommendedHomeDir defines the default directory used to place all iam service configurations.
+	RecommendedHomeDir = ".cp"
+
+	// RecommendedEnvPrefix defines the ENV prefix used by all iam service.
+	RecommendedEnvPrefix = "CP"
+)
+
+// Config is a structure used to configure a GenericApiServer.
 // Its members are sorted roughly in order of importance for composers.
 type Config struct {
-	SecureServing       *SecureServingInfo
-	InsecureServingInfo *InsecureServingInfo
-	Mode                string
-	Middlewares         []string
-	Healthz             bool
-	EnableProfiling     bool
-	EnableMetrics       bool
+	SecureServing   *SecureServingInfo
+	InsecureServing *InsecureServingInfo
+	Mode            string
+	Middlewares     []string
+	Healthz         bool
+	EnableProfiling bool
+	EnableMetrics   bool
 }
 
 // CertKey contains configuration items related to certificate.
@@ -52,5 +65,59 @@ func NewConfig() *Config {
 		Middlewares:     []string{},
 		EnableProfiling: true,
 		EnableMetrics:   true,
+	}
+}
+
+// CompletedConfig is the completed configuration for GenericApiServer.
+type CompletedConfig struct {
+	*Config
+}
+
+// Complete fills in any fields not set that are required to have valid data and can be derived
+// from other fields. If you're going to `ApplyOptions`, do that first. It's mutating the receiver.
+func (c *Config) Complete() CompletedConfig {
+	return CompletedConfig{c}
+}
+
+// New returns a new instance of GenericApiServer from the given config.
+func (c CompletedConfig) New() (*GenericApiServer, error) {
+	// setMode before gin.New()
+	gin.SetMode(c.Mode)
+
+	s := &GenericApiServer{
+		SecureServingInfo:   c.SecureServing,
+		InsecureServingInfo: c.InsecureServing,
+		healthz:             c.Healthz,
+		enableMetrics:       c.EnableMetrics,
+		enableProfiling:     c.EnableProfiling,
+		middlewares:         c.Middlewares,
+		Engine:              gin.New(),
+	}
+
+	initGenericAPIServer(s)
+
+	return s, nil
+}
+
+// LoadConfig reads in config file and ENV variables if set.
+func LoadConfig(cfg string, defaultName string) {
+	if cfg != "" {
+		viper.SetConfigFile(cfg)
+	} else {
+		viper.AddConfigPath(".")
+		viper.AddConfigPath(filepath.Join(homedir.HomeDir(), RecommendedHomeDir))
+		viper.AddConfigPath("/etc/iam")
+		viper.SetConfigName(defaultName)
+	}
+
+	// Use config file from the flag.
+	viper.SetConfigType("yaml")              // set the type of the configuration to yaml.
+	viper.AutomaticEnv()                     // read in environment variables that match.
+	viper.SetEnvPrefix(RecommendedEnvPrefix) // set ENVIRONMENT variables prefix to IAM.
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_", "-", "_"))
+
+	// If a config file is found, read it in.
+	if err := viper.ReadInConfig(); err != nil {
+		log.Warnf("WARNING: viper failed to discover and load the configuration file: %s", err.Error())
 	}
 }
