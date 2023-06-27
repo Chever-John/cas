@@ -6,17 +6,17 @@ type HelloerSrv interface {
 	GetHello(ctx context.Context, name string) error
 }
 
-type helloerService struct {
+type HelloerService struct {
 }
 
-// static check, make sure helloerService implements HelloerSrv interface.
-var _ HelloerSrv = (*helloerService)(nil)
+// static check, make sure HelloerService implements HelloerSrv interface.
+var _ HelloerSrv = (*HelloerService)(nil)
 
-func newHelloers(srv *service) *helloerService {
-	return &helloerService{}
+func newHelloers(srv *service) *HelloerService {
+	return &HelloerService{}
 }
 
 // GetHello returns a greeting for the named person.
-func (s *helloerService) GetHello(ctx context.Context, name string)  error
+func (s *HelloerService) GetHello(ctx context.Context, name string) error {
 	return nil
 }

@@ -5,7 +5,7 @@ import (
 )
 
 type HelloerController struct {
-	srv srvv1.HelloerSrv
+	srv srvv1.Service
 }
 
 // NewHelloerController creates a helloer handler.
