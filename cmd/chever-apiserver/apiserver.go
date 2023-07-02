@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver"
+	"github.com/Chever-John/cas/internal/apiserver"
 )
 
 // apiserver is the api server for the whole service.

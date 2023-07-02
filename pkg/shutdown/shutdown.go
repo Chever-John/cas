@@ -5,7 +5,7 @@ Package shutdown Providing shutdown callbacks for graceful app shutdown
 
 To install run:
 
-	go get github.com/Chever-John/Chever-ApiServer/pkg/shutdown
+	go get github.com/Chever-John/cas/pkg/shutdown
 
 # Example - posix signals
 
@@ -19,8 +19,8 @@ When callbacks return, the application will exit with os.Exit(0)
 		"fmt"
 		"time"
 
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown"
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown/shutdownmanagers/posixsignal"
+		"github.com/Chever-John/cas/pkg/shutdown"
+		"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/posixsignal"
 	)
 
 	func main() {
@@ -60,8 +60,8 @@ error returned from ShutdownCallback.
 		"time"
 		"errors"
 
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown"
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown/shutdownmanagers/posixsignal"
+		"github.com/Chever-John/cas/pkg/shutdown"
+		"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/posixsignal"
 	)
 
 	func main() {
@@ -112,9 +112,9 @@ message to correct instance via http on port 7999.
 		"fmt"
 		"time"
 
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown"
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown/shutdownmanagers/awsmanager"
-		"github.com/Chever-John/Chever-ApiServer/pkg/shutdown/shutdownmanagers/posixsignal"
+		"github.com/Chever-John/cas/pkg/shutdown"
+		"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/awsmanager"
+		"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/posixsignal"
 	)
 
 	func main() {

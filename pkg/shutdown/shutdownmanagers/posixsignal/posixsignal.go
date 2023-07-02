@@ -10,7 +10,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/Chever-John/Chever-Apiserver/pkg/shutdown"
+	"github.com/Chever-John/cas/pkg/shutdown"
 )
 
 // Name defines shutdown manager name.

@@ -2,12 +2,12 @@ package apiserver
 
 import (
 	"fmt"
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver/config"
-	genericoptions "github.com/Chever-John/Chever-Apiserver/internal/pkg/options"
-	genericapiserver "github.com/Chever-John/Chever-Apiserver/internal/pkg/server"
-	"github.com/Chever-John/Chever-Apiserver/pkg/log"
-	"github.com/Chever-John/Chever-Apiserver/pkg/shutdown"
-	"github.com/Chever-John/Chever-Apiserver/pkg/shutdown/shutdownmanagers/posixsignal"
+	"github.com/Chever-John/cas/internal/apiserver/config"
+	genericoptions "github.com/Chever-John/cas/internal/pkg/options"
+	genericapiserver "github.com/Chever-John/cas/internal/pkg/server"
+	"github.com/Chever-John/cas/pkg/log"
+	"github.com/Chever-John/cas/pkg/shutdown"
+	"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/posixsignal"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/reflection"

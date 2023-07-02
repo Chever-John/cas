@@ -1,7 +1,7 @@
 package hello
 
 import (
-	srvv1 "github.com/Chever-John/Chever-Apiserver/internal/apiserver/service/v1"
+	srvv1 "github.com/Chever-John/cas/internal/apiserver/service/v1"
 )
 
 type HelloerController struct {

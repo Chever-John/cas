@@ -7,7 +7,7 @@ import (
 
 	"github.com/spf13/pflag"
 
-	"github.com/Chever-John/Chever-Apiserver/internal/pkg/server"
+	"github.com/Chever-John/cas/internal/pkg/server"
 )
 
 // SecureServingOptions contains configuration items related to HTTPS server startup.

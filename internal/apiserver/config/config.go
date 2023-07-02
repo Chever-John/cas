@@ -1,6 +1,6 @@
 package config
 
-import "github.com/Chever-John/Chever-Apiserver/internal/apiserver/options"
+import "github.com/Chever-John/cas/internal/apiserver/options"
 
 // Config is the running configuration structure of the IAM pump service.
 type Config struct {

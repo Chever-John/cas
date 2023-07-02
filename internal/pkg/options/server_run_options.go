@@ -1,7 +1,7 @@
 package options
 
 import (
-	"github.com/Chever-John/Chever-Apiserver/internal/pkg/server"
+	"github.com/Chever-John/cas/internal/pkg/server"
 	"github.com/spf13/pflag"
 )
 

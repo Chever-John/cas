@@ -3,7 +3,7 @@ package options
 import (
 	"github.com/spf13/pflag"
 
-	"github.com/Chever-John/Chever-Apiserver/internal/pkg/server"
+	"github.com/Chever-John/cas/internal/pkg/server"
 )
 
 // FeatureOptions contains configuration items related to API server features.
