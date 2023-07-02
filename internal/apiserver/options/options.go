@@ -1,8 +1,8 @@
 package options
 
 import (
-	genericoptions "github.com/Chever-John/Chever-Apiserver/internal/pkg/options"
-	"github.com/Chever-John/Chever-Apiserver/pkg/log"
+	genericoptions "github.com/Chever-John/cas/internal/pkg/options"
+	"github.com/Chever-John/cas/pkg/log"
 	cliflag "github.com/Chever-John/component-base/pkg/cli/flag"
 )
 

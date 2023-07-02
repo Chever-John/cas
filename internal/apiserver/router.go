@@ -1,7 +1,7 @@
 package apiserver
 
 import (
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver/controller/v1/hello"
+	"github.com/Chever-John/cas/internal/apiserver/controller/v1/hello"
 	"github.com/gin-gonic/gin"
 )
 

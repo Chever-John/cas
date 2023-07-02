@@ -1,10 +1,10 @@
 package apiserver
 
 import (
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver/config"
-	"github.com/Chever-John/Chever-Apiserver/internal/apiserver/options"
-	"github.com/Chever-John/Chever-Apiserver/pkg/app"
-	"github.com/Chever-John/Chever-Apiserver/pkg/log"
+	"github.com/Chever-John/cas/internal/apiserver/config"
+	"github.com/Chever-John/cas/internal/apiserver/options"
+	"github.com/Chever-John/cas/pkg/app"
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 const commandDesc = `This is Chever's apiserver.`

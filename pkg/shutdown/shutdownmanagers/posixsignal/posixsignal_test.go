@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Chever-John/Chever-Apiserver/pkg/shutdown"
+	"github.com/Chever-John/cas/pkg/shutdown"
 )
 
 type startShutdownFunc func(sm shutdown.ShutdownManager)

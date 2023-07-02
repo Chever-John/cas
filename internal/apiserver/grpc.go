@@ -1,7 +1,7 @@
 package apiserver
 
 import (
-	"github.com/Chever-John/Chever-Apiserver/pkg/log"
+	"github.com/Chever-John/cas/pkg/log"
 	"google.golang.org/grpc"
 	"net"
 )

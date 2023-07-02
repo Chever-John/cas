@@ -15,8 +15,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Chever-John/Chever-Apiserver/internal/pkg/middleware"
-	"github.com/Chever-John/Chever-Apiserver/pkg/log"
+	"github.com/Chever-John/cas/internal/pkg/middleware"
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 // GenericApiServer contains state for an iam api server.
