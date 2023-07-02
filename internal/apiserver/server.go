@@ -40,24 +40,24 @@ func createApiServer(cfg *config.Config) (*apiServer, error) {
 		return nil, err
 	}
 
-	extraConfig, err := buildExtraConfig(cfg)
-	if err != nil {
-		return nil, err
-	}
+	//extraConfig, err := buildExtraConfig(cfg)
+	//if err != nil {
+	//	return nil, err
+	//}
 
 	genericServer, err := genericConfig.Complete().New()
 	if err != nil {
 		return nil, err
 	}
-	extraServer, err := extraConfig.complete().New()
-	if err != nil {
-		return nil, err
-	}
+	//extraServer, err := extraConfig.complete().New()
+	//if err != nil {
+	//	return nil, err
+	//}
 
 	server := &apiServer{
 		gs:               gs,
 		genericApiServer: genericServer,
-		gRPCApiServer:    extraServer,
+		//gRPCApiServer:    extraServer,
 	}
 
 	return server, nil
@@ -67,7 +67,7 @@ func (s *apiServer) PrepareRun() preparedApiServer {
 	initRouter(s.genericApiServer.Engine)
 
 	s.gs.AddShutdownCallback(shutdown.ShutdownFunc(func(string) error {
-		s.gRPCApiServer.Close()
+		//s.gRPCApiServer.Close()
 		s.genericApiServer.Close()
 
 		return nil
@@ -77,7 +77,7 @@ func (s *apiServer) PrepareRun() preparedApiServer {
 }
 
 func (s preparedApiServer) Run() error {
-	go s.gRPCApiServer.Run()
+	//go s.gRPCApiServer.Run()
 
 	// start shutdown managers
 	if err := s.gs.Start(); err != nil {
