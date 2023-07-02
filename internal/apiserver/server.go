@@ -1,8 +1,6 @@
 package apiserver
 
 import (
-	"fmt"
-
 	"github.com/Chever-John/cas/internal/apiserver/config"
 	genericoptions "github.com/Chever-John/cas/internal/pkg/options"
 	genericapiserver "github.com/Chever-John/cas/internal/pkg/server"
@@ -84,16 +82,6 @@ func (s preparedApiServer) Run() error {
 	return s.genericApiServer.Run()
 }
 
-//nolint: unparam
-func buildExtraConfig(cfg *config.Config) (*ExtraConfig, error) {
-	return &ExtraConfig{
-		Addr:       fmt.Sprintf("%s:%d", cfg.GRPCOptions.BindAddress, cfg.GRPCOptions.BindPort),
-		MaxMsgSize: cfg.GRPCOptions.MaxMsgSize,
-		ServerCert: cfg.SecureServing.ServerCert,
-		// etcdOptions:      cfg.EtcdOptions,
-	}, nil
-}
-
 func buildGenericConfig(cfg *config.Config) (genericConfig *genericapiserver.Config, lastErr error) {
 	genericConfig = genericapiserver.NewConfig()
 	if lastErr = cfg.GenericServerRunOptions.ApplyTo(genericConfig); lastErr != nil {
@@ -113,17 +101,4 @@ func buildGenericConfig(cfg *config.Config) (genericConfig *genericapiserver.Con
 	}
 
 	return
-}
-
-type completedExtraConfig struct {
-	*ExtraConfig
-}
-
-// Complete fills in any fields not set that are required to have valid data and can be derived from other fields.
-func (c *ExtraConfig) complete() *completedExtraConfig {
-	if c.Addr == "" {
-		c.Addr = "127.0.0.1:8081"
-	}
-
-	return &completedExtraConfig{c}
 }
