@@ -1,8 +1,9 @@
 package apiserver
 
 import (
-	"github.com/Chever-John/cas/internal/apiserver/controller/v1/hello"
 	"github.com/gin-gonic/gin"
+
+	"github.com/Chever-John/cas/internal/apiserver/controller/v1/hello"
 )
 
 func initRouter(g *gin.Engine) {

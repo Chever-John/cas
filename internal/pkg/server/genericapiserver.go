@@ -1,7 +1,12 @@
 package server
 
 import (
+	"context"
 	"fmt"
+	"net/http"
+	"strings"
+	"time"
+
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/core"
@@ -9,11 +14,6 @@ import (
 	"github.com/marmotedu/errors"
 	ginprometheus "github.com/zsais/go-gin-prometheus"
 	"golang.org/x/sync/errgroup"
-	"strings"
-
-	"context"
-	"net/http"
-	"time"
 
 	"github.com/Chever-John/cas/internal/pkg/middleware"
 	"github.com/Chever-John/cas/pkg/log"

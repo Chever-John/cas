@@ -1,8 +1,9 @@
 package options
 
 import (
-	"github.com/Chever-John/cas/internal/pkg/server"
 	"github.com/spf13/pflag"
+
+	"github.com/Chever-John/cas/internal/pkg/server"
 )
 
 // ServerRunOptions is the options while running a generic api server.

@@ -8,14 +8,10 @@ import (
 	"github.com/Chever-John/cas/pkg/log"
 	"github.com/Chever-John/cas/pkg/shutdown"
 	"github.com/Chever-John/cas/pkg/shutdown/shutdownmanagers/posixsignal"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/reflection"
 )
 
 type apiServer struct {
 	gs               *shutdown.GracefulShutdown
-	gRPCApiServer    *grpcApiServer
 	genericApiServer *genericapiserver.GenericApiServer
 }
 
@@ -57,7 +53,7 @@ func createApiServer(cfg *config.Config) (*apiServer, error) {
 	server := &apiServer{
 		gs:               gs,
 		genericApiServer: genericServer,
-		//gRPCApiServer:    extraServer,
+		// gRPCApiServer:    extraServer,
 	}
 
 	return server, nil
@@ -67,7 +63,7 @@ func (s *apiServer) PrepareRun() preparedApiServer {
 	initRouter(s.genericApiServer.Engine)
 
 	s.gs.AddShutdownCallback(shutdown.ShutdownFunc(func(string) error {
-		//s.gRPCApiServer.Close()
+		// s.gRPCApiServer.Close()
 		s.genericApiServer.Close()
 
 		return nil
@@ -77,7 +73,7 @@ func (s *apiServer) PrepareRun() preparedApiServer {
 }
 
 func (s preparedApiServer) Run() error {
-	//go s.gRPCApiServer.Run()
+	// go s.gRPCApiServer.Run()
 
 	// start shutdown managers
 	if err := s.gs.Start(); err != nil {
@@ -129,18 +125,4 @@ func (c *ExtraConfig) complete() *completedExtraConfig {
 	}
 
 	return &completedExtraConfig{c}
-}
-
-// New create a grpcAPIServer instance.
-func (c *completedExtraConfig) New() (*grpcApiServer, error) {
-	creds, err := credentials.NewServerTLSFromFile(c.ServerCert.CertKey.CertFile, c.ServerCert.CertKey.KeyFile)
-	if err != nil {
-		log.Fatalf("Failed to generate credentials %s", err.Error())
-	}
-	opts := []grpc.ServerOption{grpc.MaxRecvMsgSize(c.MaxMsgSize), grpc.Creds(creds)}
-	grpcServer := grpc.NewServer(opts...)
-
-	reflection.Register(grpcServer)
-
-	return &grpcApiServer{grpcServer, c.Addr}, nil
 }

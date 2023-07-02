@@ -1,8 +1,9 @@
 package middleware
 
 import (
-	"github.com/Chever-John/cas/pkg/log"
 	"github.com/gin-gonic/gin"
+
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 // UsernameKey defines the key in gin context which represents the owner of the secret.

@@ -6,8 +6,7 @@ type HelloerSrv interface {
 	GetHello(ctx context.Context, name string) error
 }
 
-type HelloerService struct {
-}
+type HelloerService struct{}
 
 // static check, make sure HelloerService implements HelloerSrv interface.
 var _ HelloerSrv = (*HelloerService)(nil)
