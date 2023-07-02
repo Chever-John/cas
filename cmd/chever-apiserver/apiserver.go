@@ -13,5 +13,5 @@ import (
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 
-	apiserver.NewApp("chever-apiserver").Run()
+	apiserver.NewApp("cas-apiserver").Run()
 }

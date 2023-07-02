@@ -1,7 +1,3 @@
-# Copyright 2020 Lingfei Kong <colin404@foxmail.com>. All rights reserved.
-# Use of this source code is governed by a MIT style
-# license that can be found in the LICENSE file.
-
 # This file contains all available configuration options
 # with their default values.
 
@@ -165,7 +161,7 @@ linters-settings:
     # put imports beginning with prefix after 3rd-party packages;
     # only support one prefix
     # if not set, use goimports.local-prefixes
-    prefix: github.com/marmotedu/iam
+    prefix: github.com/Chever-John/Chever-ApiServer
   gocognit:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 30
@@ -322,7 +318,7 @@ linters-settings:
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
-    local-prefixes: github.com/marmotedu/iam
+    local-prefixes: github.com/Chever-John/Chever-ApiServer
   golint:
     # minimal confidence for issues, default is 0.8
     min-confidence: 0.9
@@ -340,9 +336,9 @@ linters-settings:
     # List of allowed `replace` directives. Default is empty.
     replace-allow-list:
       - google.golang.org/grpc
-      - github.com/marmotedu/api
-      - github.com/marmotedu/component-base
-      - github.com/marmotedu/marmotedu-sdk-go
+      - github.com/Chever-John/api
+      - github.com/Chever-John/component-base
+      - github.com/Chever-John/chever-sdk-go
 
     # Allow to not explain why the version has been retracted in the `retract` directives. Default is false.
     retract-allow-no-explanation: false
@@ -366,8 +362,8 @@ linters-settings:
       modules:
         - github.com/pkg/errors:
             recommendations:
-              - github.com/marmotedu/errors
-            reason: "`github.com/marmotedu/errors` is the log package used by marmotedu projects."
+              - github.com/Chever-John/errors
+            reason: "`github.com/Chever-John/errors` is the log package used by Chever-John projects."
       versions:
         - github.com/MakeNowJust/heredoc:
             version: "> 2.0.9"
@@ -463,8 +459,8 @@ linters-settings:
         alias: $1$2
     # using `jwt` alias for `github.com/appleboy/gin-jwt/v2` package
     jwt: github.com/appleboy/gin-jwt/v2
-    # using `metav1` alias for `github.com/marmotedu/component-base/pkg/meta/v1` package
-    metav1: github.com/marmotedu/component-base/pkg/meta/v1
+    # using `metav1` alias for `github.com/Chever-John/component-base/pkg/meta/v1` package
+    metav1: github.com/Chever-John/component-base/pkg/meta/v1
 
   ireturn:
     # ireturn allows using `allow` and `reject` settings at the same time.

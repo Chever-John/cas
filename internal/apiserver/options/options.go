@@ -20,6 +20,9 @@ type Options struct {
 func NewOptions() *Options {
 	o := Options{
 		GenericServerRunOptions: genericoptions.NewServerRunOptions(),
+		InsecureServing:         genericoptions.NewInsecureServingOptions(),
+		Log:                     log.NewOptions(),
+		FeatureOptions:          genericoptions.NewFeatureOptions(),
 	}
 
 	return &o

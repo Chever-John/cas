@@ -1,4 +1,4 @@
-# chever-apiserver 全配置
+# cas-apiserver 全配置
 
 # RESTful 服务配置
 server:
@@ -9,24 +9,24 @@ server:
 
 # GRPC 服务配置
 grpc:
-  bind-address: ${CHEVER_APISERVER_GRPC_BIND_ADDRESS} # grpc 安全模式的 IP 地址，默认 0.0.0.0
-  bind-port: ${CHEVER_APISERVER_GRPC_BIND_PORT} # grpc 安全模式的端口号，默认 8081
+  bind-address: ${CAS_APISERVER_GRPC_BIND_ADDRESS} # grpc 安全模式的 IP 地址，默认 0.0.0.0
+  bind-port: ${CAS_APISERVER_GRPC_BIND_PORT} # grpc 安全模式的端口号，默认 8081
 
 # HTTP 配置
 insecure:
-    bind-address: ${CHEVER_APISERVER_INSECURE_BIND_ADDRESS} # 绑定的不安全 IP 地址，设置为 0.0.0.0 表示使用全部网络接口，默认为 127.0.0.1
-    bind-port: ${CHEVER_APISERVER_INSECURE_BIND_PORT} # 提供非安全认证的监听端口，默认为 8080
+    bind-address: ${CAS_APISERVER_INSECURE_BIND_ADDRESS} # 绑定的不安全 IP 地址，设置为 0.0.0.0 表示使用全部网络接口，默认为 127.0.0.1
+    bind-port: ${CAS_APISERVER_INSECURE_BIND_PORT} # 提供非安全认证的监听端口，默认为 8080
 
 # HTTPS 配置
 secure:
-    bind-address: ${CHEVER_APISERVER_SECURE_BIND_ADDRESS} # HTTPS 安全模式的 IP 地址，默认为 0.0.0.0
-    bind-port: ${CHEVER_APISERVER_SECURE_BIND_PORT} # 使用 HTTPS 安全模式的端口号，设置为 0 表示不启用 HTTPS，默认为 8443
+    bind-address: ${CAS_APISERVER_SECURE_BIND_ADDRESS} # HTTPS 安全模式的 IP 地址，默认为 0.0.0.0
+    bind-port: ${CAS_APISERVER_SECURE_BIND_PORT} # 使用 HTTPS 安全模式的端口号，设置为 0 表示不启用 HTTPS，默认为 8443
     tls:
-        #cert-dir: .chever/cert # TLS 证书所在的目录，默认值为 /var/run/chever
-        #pair-name: chever # TLS 私钥对名称，默认 CHEVER
+        #cert-dir: .cas/cert # TLS 证书所在的目录，默认值为 /var/run/cas
+        #pair-name: cas # TLS 私钥对名称，默认 CHEVER
         cert-key:
-            cert-file: ${CHEVER_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE} # 包含 x509 证书的文件路径，用 HTTPS 认证
-            private-key-file: ${CHEVER_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE} # TLS 私钥
+            cert-file: ${CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE} # 包含 x509 证书的文件路径，用 HTTPS 认证
+            private-key-file: ${CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE} # TLS 私钥
 
 # JWT 配置
 jwt:
@@ -43,8 +43,8 @@ log:
     enable-color: true # 是否开启颜色输出，true:是，false:否
     disable-caller: false # 是否开启 caller，如果开启会在日志中显示调用日志所在的文件、函数和行号
     disable-stacktrace: false # 是否再panic及以上级别禁止打印堆栈信息
-    output-paths: ${CHEVER_LOG_DIR}/chever-apiserver.log,stdout # 支持输出到多个输出，逗号分开。支持输出到标准输出（stdout）和文件。
-    error-output-paths: ${CHEVER_LOG_DIR}/chever-apiserver.error.log # zap内部(非业务)错误日志输出路径，多个输出，逗号分开
+    output-paths: ${CAS_LOG_DIR}/cas-apiserver.log,stdout # 支持输出到多个输出，逗号分开。支持输出到标准输出（stdout）和文件。
+    error-output-paths: ${CAS_LOG_DIR}/cas-apiserver.error.log # zap内部(非业务)错误日志输出路径，多个输出，逗号分开
 
 feature:
   enable-metrics: true # 开启 metrics, router:  /metrics
