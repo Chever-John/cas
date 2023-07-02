@@ -25,7 +25,6 @@ func installController(g *gin.Engine) *gin.Engine {
 
 			helloerv1.GET("", helloerController.Greet)
 		}
-
 	}
 
 	return g

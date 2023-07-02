@@ -2,6 +2,7 @@ package apiserver
 
 import (
 	"fmt"
+
 	"github.com/Chever-John/cas/internal/apiserver/config"
 	genericoptions "github.com/Chever-John/cas/internal/pkg/options"
 	genericapiserver "github.com/Chever-John/cas/internal/pkg/server"
@@ -83,7 +84,7 @@ func (s preparedApiServer) Run() error {
 	return s.genericApiServer.Run()
 }
 
-// nolint: unparam
+//nolint: unparam
 func buildExtraConfig(cfg *config.Config) (*ExtraConfig, error) {
 	return &ExtraConfig{
 		Addr:       fmt.Sprintf("%s:%d", cfg.GRPCOptions.BindAddress, cfg.GRPCOptions.BindPort),
