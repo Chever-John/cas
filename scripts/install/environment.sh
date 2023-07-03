@@ -31,17 +31,17 @@ fi
 
 readonly CA_FILE="${CA_FILE:-${CAS_CONFIG_DIR}/cert/ca.pem}" # CA certificate file
 
-# chever-apiserver configuration
-readonly CAS_APISERVER_HOST="${CAS_APISERVER_HOST:-127.0.0.1}" # chever-apiserver host
+# cas-apiserver configuration
+readonly CAS_APISERVER_HOST="${CAS_APISERVER_HOST:-127.0.0.1}" # cas-apiserver host
 
-readonly CAS_APISERVER_GRPC_BIND_ADDRESS="${CAS_APISERVER_GRPC_BIND_ADDRESS:-0.0.0.0}" # chever-apiserver grpc bind address
-readonly CAS_APISERVER_GRPC_BIND_PORT="${CAS_APISERVER_GRPC_BIND_PORT:-8081}" # chever-apiserver grpc bind port
+readonly CAS_APISERVER_GRPC_BIND_ADDRESS="${CAS_APISERVER_GRPC_BIND_ADDRESS:-0.0.0.0}" # cas-apiserver grpc bind address
+readonly CAS_APISERVER_GRPC_BIND_PORT="${CAS_APISERVER_GRPC_BIND_PORT:-8081}" # cas-apiserver grpc bind port
 
-readonly CAS_APISERVER_INSECURE_BIND_ADDRESS="${CAS_APISERVER_INSECURE_BIND_ADDRESS:-127.0.0.1}" # chever-apiserver insecure bind address
-readonly CAS_APISERVER_INSECURE_BIND_PORT="${CAS_APISERVER_INSECURE_BIND_PORT:-8080}" # chever-apiserver insecure bind port
+readonly CAS_APISERVER_INSECURE_BIND_ADDRESS="${CAS_APISERVER_INSECURE_BIND_ADDRESS:-127.0.0.1}" # cas-apiserver insecure bind address
+readonly CAS_APISERVER_INSECURE_BIND_PORT="${CAS_APISERVER_INSECURE_BIND_PORT:-8080}" # cas-apiserver insecure bind port
 
-readonly CAS_APISERVER_SECURE_BIND_ADDRESS="${CAS_APISERVER_SECURE_BIND_ADDRESS:-0.0.0.0}" # chever-apiserver secure bind address
-readonly CAS_APISERVER_SECURE_BIND_PORT="${CAS_APISERVER_SECURE_BIND_PORT:-8443}" # chever-apiserver secure bind port
+readonly CAS_APISERVER_SECURE_BIND_ADDRESS="${CAS_APISERVER_SECURE_BIND_ADDRESS:-0.0.0.0}" # cas-apiserver secure bind address
+readonly CAS_APISERVER_SECURE_BIND_PORT="${CAS_APISERVER_SECURE_BIND_PORT:-8443}" # cas-apiserver secure bind port
 
 readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE:-${CAS_CONFIG_DIR}/cert/cas-apiserver.pem}
 readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE:-${CAS_CONFIG_DIR}/cert/cas-apiserver-key.pem}
