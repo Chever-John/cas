@@ -1,8 +1,9 @@
 package apiserver
 
 import (
-	"github.com/Chever-John/cas/internal/apiserver/controller/v1/hello"
 	"github.com/gin-gonic/gin"
+
+	"github.com/Chever-John/cas/internal/apiserver/controller/v1/hello"
 )
 
 func initRouter(g *gin.Engine) {
@@ -24,7 +25,6 @@ func installController(g *gin.Engine) *gin.Engine {
 
 			helloerv1.GET("", helloerController.Greet)
 		}
-
 	}
 
 	return g

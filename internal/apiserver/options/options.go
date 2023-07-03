@@ -1,9 +1,10 @@
 package options
 
 import (
+	cliflag "github.com/Chever-John/component-base/pkg/cli/flag"
+
 	genericoptions "github.com/Chever-John/cas/internal/pkg/options"
 	"github.com/Chever-John/cas/pkg/log"
-	cliflag "github.com/Chever-John/component-base/pkg/cli/flag"
 )
 
 // Options is the options for apiserver.
@@ -13,7 +14,6 @@ type Options struct {
 	FeatureOptions          *genericoptions.FeatureOptions         `json:"feature"  mapstructure:"feature"`
 	SecureServing           *genericoptions.SecureServingOptions   `json:"secure"   mapstructure:"secure"`
 	InsecureServing         *genericoptions.InsecureServingOptions `json:"insecure" mapstructure:"insecure"`
-	GRPCOptions             *genericoptions.GRPCOptions            `json:"grpc"     mapstructure:"grpc"`
 }
 
 // NewOptions creates a new Options object with default params.

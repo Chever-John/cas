@@ -4,8 +4,7 @@ type Service interface {
 	Helloers() HelloerSrv
 }
 
-type service struct {
-}
+type service struct{}
 
 // NewService returns Service interface.
 func NewService() Service {

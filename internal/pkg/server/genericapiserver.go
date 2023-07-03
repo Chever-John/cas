@@ -1,7 +1,12 @@
 package server
 
 import (
+	"context"
 	"fmt"
+	"net/http"
+	"strings"
+	"time"
+
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/core"
@@ -9,11 +14,6 @@ import (
 	"github.com/marmotedu/errors"
 	ginprometheus "github.com/zsais/go-gin-prometheus"
 	"golang.org/x/sync/errgroup"
-	"strings"
-
-	"context"
-	"net/http"
-	"time"
 
 	"github.com/Chever-John/cas/internal/pkg/middleware"
 	"github.com/Chever-John/cas/pkg/log"
@@ -135,24 +135,24 @@ func (s *GenericApiServer) Run() error {
 		return nil
 	})
 
-	eg.Go(func() error {
-		key, cert := s.SecureServingInfo.CertKey.KeyFile, s.SecureServingInfo.CertKey.CertFile
-		if cert == "" || key == "" || s.SecureServingInfo.BindPort == 0 {
-			return nil
-		}
-
-		log.Infof("Start to listening the incoming requests on https address: %s", s.SecureServingInfo.Address())
-
-		if err := s.secureServer.ListenAndServeTLS(cert, key); err != nil && !errors.Is(err, http.ErrServerClosed) {
-			log.Fatal(err.Error())
-
-			return err
-		}
-
-		log.Infof("Server on %s stopped", s.SecureServingInfo.Address())
-
-		return nil
-	})
+	//eg.Go(func() error {
+	//	key, cert := s.SecureServingInfo.CertKey.KeyFile, s.SecureServingInfo.CertKey.CertFile
+	//	if cert == "" || key == "" || s.SecureServingInfo.BindPort == 0 {
+	//		return nil
+	//	}
+	//
+	//	log.Infof("Start to listening the incoming requests on https address: %s", s.SecureServingInfo.Address())
+	//
+	//	if err := s.secureServer.ListenAndServeTLS(cert, key); err != nil && !errors.Is(err, http.ErrServerClosed) {
+	//		log.Fatal(err.Error())
+	//
+	//		return err
+	//	}
+	//
+	//	log.Infof("Server on %s stopped", s.SecureServingInfo.Address())
+	//
+	//	return nil
+	//})
 
 	// Ping the server to make sure the router is working.
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
