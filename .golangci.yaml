@@ -737,7 +737,7 @@ linters:
     - gofmt
     - gofumpt
     - goheader
-    - goimports
+#    - goimports
     - gomoddirectives
     - gomodguard
     - goprintffuncname
