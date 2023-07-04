@@ -2,10 +2,11 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
-	uuid "github.com/satori/go.uuid"
 	"io"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	uuid "github.com/satori/go.uuid"
 )
 
 const (

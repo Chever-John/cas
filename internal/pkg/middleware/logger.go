@@ -2,11 +2,12 @@ package middleware
 
 import (
 	"fmt"
+	"os"
+	"time"
+
 	"github.com/Chever-John/cas/pkg/log"
 	"github.com/gin-gonic/gin"
 	"github.com/mattn/go-isatty"
-	"os"
-	"time"
 )
 
 // defaultLogFormatter is the default log format function Logger middleware uses.
