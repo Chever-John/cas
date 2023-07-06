@@ -12,6 +12,7 @@ include scripts/make-rules/common.mk # make sure include common.mk at the first 
 include scripts/make-rules/golang.mk
 include scripts/make-rules/image.mk
 include scripts/make-rules/deploy.mk
+include scripts/make-rules/gen.mk
 include scripts/make-rules/tools.mk
 
 define USAGE_OPTIONS
