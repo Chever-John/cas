@@ -5,7 +5,7 @@
 DOCKER := docker
 DOCKER_SUPPORTED_API_VERSION ?= 1.32
 
-REGISTRY_PREFIX ?= Chever-John
+REGISTRY_PREFIX ?= cheverjohn
 BASE_IMAGE = centos:centos8
 
 EXTRA_ARGS ?= --no-cache
