@@ -1,0 +1,22 @@
+name: cas-apiserver
+serviceType: deployment
+containers:
+  - name: cas-apiserver
+    dev:
+      gitUrl: ""
+      image: cheverjohn/nocalhost-dev-container-go:1.19.8
+      shell: ""
+      workDir: ""
+      storageClass: nfs-client
+      resources: null
+      persistentVolumeDirs:
+        - path: /home/cas-apiserver
+          capacity: 1Gi
+      command: null
+      debug:
+        remoteDebugPort: 0
+        language: ""
+      hotReload: false
+      sync: null
+      env: []
+      portForward: []
