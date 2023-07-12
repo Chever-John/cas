@@ -61,6 +61,11 @@ go.build: go.build.verify $(addprefix go.build., $(addprefix $(PLATFORM)., $(BIN
 .PHONY: go.build.multiarch
 go.build.multiarch: go.build.verify $(foreach p,$(PLATFORMS),$(addprefix go.build., $(addprefix $(p)., $(BINS))))
 
+.PHONY: go.run
+go.run:
+	@echo "===========> Running binary $(COMMAND) $(VERSION)"
+	@$(GO) run $(GO_BUILD_FLAGS) $(ROOT_PACKAGE)/cmd/$(COMMAND)
+
 .PHONY: go.clean
 go.clean:
 	@echo "===========> Cleaning all build output"
