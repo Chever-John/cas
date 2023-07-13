@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+PROJECT_NAME="lbctrl"
 # Chever-ApiServer 项目源码根目录，项目简称为 CAS（Chever ApiServer）。
 CAS_ROOT=$(dirname "${BASH_SOURCE[0]}")/../..
 #${BASH_SOURCE[0]}：这个表达式表示当前脚本文件的路径
@@ -16,17 +17,17 @@ readonly INSTALL_DIR=${INSTALL_DIR:-/tmp/installation}
 mkdir -p "${INSTALL_DIR}"
 
 # main system configuration
-# if os is darwin/arm64, CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/cas}"
+# if os is darwin/arm64, CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/${PROJECT_NAME}}"
 if [[ "$(uname)" == "Darwin" ]]; then
-  readonly CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/cas}" # CAS data directory
-  readonly CAS_INSTALL_DIR="${CAS_INSTALL_DIR:-/Users/${USER}/opt/cas}" # CAS installation directory
-  readonly CAS_CONFIG_DIR="${CAS_CONFIG_DIR:-/Users/${USER}/etc/cas}" # CAS configuration directory
-  readonly CAS_LOG_DIR="${CAS_LOG_DIR:-/Users/${USER}/var/log/cas}" # CAS log directory
+  readonly CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/${PROJECT_NAME}}" # CAS data directory
+  readonly CAS_INSTALL_DIR="${CAS_INSTALL_DIR:-/Users/${USER}/opt/${PROJECT_NAME}}" # CAS installation directory
+  readonly CAS_CONFIG_DIR="${CAS_CONFIG_DIR:-/Users/${USER}/etc/${PROJECT_NAME}}" # CAS configuration directory
+  readonly CAS_LOG_DIR="${CAS_LOG_DIR:-/Users/${USER}/var/log/${PROJECT_NAME}}" # CAS log directory
 else
-  readonly CAS_DATA_DIR="${CAS_DATA_DIR:-/data/cas}" # CAS data directory
-  readonly CAS_INSTALL_DIR="${CAS_INSTALL_DIR:-/opt/cas}" # CAS installation directory
-  readonly CAS_CONFIG_DIR="${CAS_CONFIG_DIR:-/etc/cas}" # CAS configuration directory
-  readonly CAS_LOG_DIR="${CAS_LOG_DIR:-/var/log/cas}" # CAS log directory
+  readonly CAS_DATA_DIR="${CAS_DATA_DIR:-/data/${PROJECT_NAME}}" # CAS data directory
+  readonly CAS_INSTALL_DIR="${CAS_INSTALL_DIR:-/opt/${PROJECT_NAME}}" # CAS installation directory
+  readonly CAS_CONFIG_DIR="${CAS_CONFIG_DIR:-/etc/${PROJECT_NAME}}" # CAS configuration directory
+  readonly CAS_LOG_DIR="${CAS_LOG_DIR:-/var/log/${PROJECT_NAME}}" # CAS log directory
 fi
 
 readonly CA_FILE="${CA_FILE:-${CAS_CONFIG_DIR}/cert/ca.pem}" # CA certificate file
@@ -43,5 +44,5 @@ readonly CAS_APISERVER_INSECURE_BIND_PORT="${CAS_APISERVER_INSECURE_BIND_PORT:-8
 readonly CAS_APISERVER_SECURE_BIND_ADDRESS="${CAS_APISERVER_SECURE_BIND_ADDRESS:-0.0.0.0}" # cas-apiserver secure bind address
 readonly CAS_APISERVER_SECURE_BIND_PORT="${CAS_APISERVER_SECURE_BIND_PORT:-8443}" # cas-apiserver secure bind port
 
-readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE:-${CAS_CONFIG_DIR}/cert/cas-apiserver.pem}
-readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE:-${CAS_CONFIG_DIR}/cert/cas-apiserver-key.pem}
+readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_CERT_FILE:-${CAS_CONFIG_DIR}/cert/${PROJECT_NAME}-apiserver.pem}
+readonly CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE=${CAS_APISERVER_SECURE_TLS_CERT_KEY_PRIVATE_KEY_FILE:-${CAS_CONFIG_DIR}/cert/${PROJECT_NAME}-apiserver-key.pem}
