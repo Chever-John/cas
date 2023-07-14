@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_NAME="lbctrl"
+GEN_CFG_ENV=${GEN_CFG_ENV:-'Linux'}
 # Chever-ApiServer 项目源码根目录，项目简称为 CAS（Chever ApiServer）。
 CAS_ROOT=$(dirname "${BASH_SOURCE[0]}")/../..
 #${BASH_SOURCE[0]}：这个表达式表示当前脚本文件的路径
@@ -18,7 +19,7 @@ mkdir -p "${INSTALL_DIR}"
 
 # main system configuration
 # if os is darwin/arm64, CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/${PROJECT_NAME}}"
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$(uname)" == "Darwin" && $GEN_CFG_ENV != "Linux" ]]; then
   readonly CAS_DATA_DIR="${CAS_DATA_DIR:-/Users/${USER}/data/${PROJECT_NAME}}" # CAS data directory
   readonly CAS_INSTALL_DIR="${CAS_INSTALL_DIR:-/Users/${USER}/opt/${PROJECT_NAME}}" # CAS installation directory
   readonly CAS_CONFIG_DIR="${CAS_CONFIG_DIR:-/Users/${USER}/etc/${PROJECT_NAME}}" # CAS configuration directory
