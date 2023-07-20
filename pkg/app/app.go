@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Chever-John/cas/pkg/log"
 	cliflag "github.com/Chever-John/component-base/pkg/cli/flag"
 	"github.com/Chever-John/component-base/pkg/version"
 	"github.com/Chever-John/component-base/pkg/version/verflag"
@@ -11,7 +12,6 @@ import (
 	"github.com/marmotedu/component-base/pkg/cli/globalflag"
 	"github.com/marmotedu/component-base/pkg/term"
 	"github.com/marmotedu/errors"
-	"github.com/marmotedu/log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
