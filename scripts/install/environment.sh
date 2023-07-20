@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_NAME="lbctrl"
+PROJECT_NAME="cas"
 GEN_CFG_ENV=${GEN_CFG_ENV:-'Linux'}
 # Chever-ApiServer 项目源码根目录，项目简称为 CAS（Chever ApiServer）。
 CAS_ROOT=$(dirname "${BASH_SOURCE[0]}")/../..
