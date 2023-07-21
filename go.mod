@@ -9,7 +9,6 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/marmotedu/component-base v1.6.2
 	github.com/marmotedu/errors v1.0.2
-	github.com/marmotedu/iam v1.7.0
 	github.com/mattn/go-isatty v0.0.19
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b
 	github.com/sirupsen/logrus v1.9.3
