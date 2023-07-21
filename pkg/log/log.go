@@ -51,7 +51,7 @@ type InfoLogger interface {
 
 // Logger represents the ability to log messages, both errors and not.
 type Logger interface {
-	// All Loggers implement InfoLogger.  Calling InfoLogger methods directly on
+	// InfoLogger All Loggers implement InfoLogger.  Calling InfoLogger methods directly on
 	// a Logger value is equivalent to calling them on a V(0) InfoLogger.  For
 	// example, logger.Info() produces the same result as logger.V(0).Info.
 	InfoLogger
