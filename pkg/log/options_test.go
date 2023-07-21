@@ -24,7 +24,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/marmotedu/iam/pkg/log"
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 func Test_Options_Validate(t *testing.T) {
