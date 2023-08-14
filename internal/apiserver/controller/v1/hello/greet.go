@@ -1,8 +1,9 @@
 package hello
 
 import (
-	"github.com/Chever-John/cas/pkg/log"
 	"github.com/gin-gonic/gin"
+
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 func (hello *HelloerController) Greet(c *gin.Context) {
