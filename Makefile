@@ -13,6 +13,7 @@ include scripts/make-rules/golang.mk
 include scripts/make-rules/image.mk
 include scripts/make-rules/deploy.mk
 include scripts/make-rules/gen.mk
+include scripts/make-rules/swagger.mk
 include scripts/make-rules/tools.mk
 
 define USAGE_OPTIONS
@@ -109,6 +110,16 @@ format: tools.verify.golines tools.verify.goimports
 	@$(FIND) -type f -name '*.go' | $(XARGS) goimports -w -local $(ROOT_PACKAGE)
 	@$(FIND) -type f -name '*.go' | $(XARGS) golines -w --max-len=120 --reformat-tags --shorten-comments --ignore-generated .
 	@$(GO) mod edit -fmt
+
+## swagger: Generate swagger document.
+.PHONY: swagger
+swagger:
+	@$(MAKE) swagger.run
+
+## serve-swagger: Serve swagger spec and docs.
+.PHONY: swagger.serve
+serve-swagger:
+	@$(MAKE) swagger.serve
 
 ## tools: install dependent tools.
 .PHONY: tools
