@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Chever-John/cas/pkg/log"
 	cliflag "github.com/Chever-John/component-base/pkg/cli/flag"
 	"github.com/Chever-John/component-base/pkg/version"
 	"github.com/Chever-John/component-base/pkg/version/verflag"
@@ -14,6 +13,8 @@ import (
 	"github.com/marmotedu/errors"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+
+	"github.com/Chever-John/cas/pkg/log"
 )
 
 var progressMessage = color.GreenString("==>")
